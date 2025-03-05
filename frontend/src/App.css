@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: var(--background-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  height: 120px;
+}
+
+.body {
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: var(--background-blue);
+  cursor: pointer;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 10px;
+  width: 150px;
+}
+
+.input {
+  background-color: var(--white);
+  color: var(--gray);
+  border: var(--white);
+  width: 200px;
+  padding: 12px 20px;
+  margin: 10px;
+}
+
+.table-participation {
+  align-items: flex-start;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-participation th, .table-participation td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;  /* TODO pesquisar sobre */
+  padding: 50px;
+}
+
+.initial-text {
+  text-align: center;
+}
