@@ -5,13 +5,13 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy package.json and install dependencies
-COPY frontend/package.json frontend/package-lock.json ./
+COPY ./package.json ./package-lock.json ./
 RUN npm install 
 
 RUN npm install axios
 
 # Copy all frontend files
-COPY frontend/ .
+COPY . .
 
 # Build the React app
 RUN npm run build 
