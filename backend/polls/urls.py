@@ -9,4 +9,5 @@ urlpatterns = [
     # path("", views.index, name="index"),
     path('api/', include(router.urls)),
     path('api/participations/', views.ParticipationView.as_view(), name='participations'),
+    path('api/participations/<int:pk>/', views.ParticipationView.as_view(), name='delete-participation'),
 ]

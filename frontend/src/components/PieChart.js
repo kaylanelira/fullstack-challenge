@@ -1,6 +1,6 @@
 import { PieChart, Pie, Cell, Legend } from 'recharts';
 
-export function PieChartParticipation({participations}) {
+function PieChartParticipation({participations}) {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0020'];
 
   const chartData = participations.map(participation => ({
@@ -29,3 +29,5 @@ export function PieChartParticipation({participations}) {
     </PieChart>
   );
 }
+
+export default PieChartParticipation

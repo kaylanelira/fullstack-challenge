@@ -1,22 +1,3 @@
-export function Button({name, type}) {
-  return (
-    <button className="button" type={type}>
-      {name}
-    </button>
-  );
-}
-
-export function Input({placeholder, type = "text", value, onChange}) {
-  return (
-    <input 
-      className="input"
-      placeholder={placeholder} 
-      type={type}
-      value={value}
-      onChange={onChange}/>
-  );
-}
-
 // TODO DdeixAR MAIS REUSÁVEL
 // function Table({ data, columns }) {
 //   return (
@@ -40,7 +21,7 @@ export function Input({placeholder, type = "text", value, onChange}) {
 //     </table>
 //   );
 // }
-export function Table({participations}) {
+function Table({participations}) {
   return (
     <table className='table-participation'>
       <thead>
@@ -64,3 +45,5 @@ export function Table({participations}) {
     </table>
   );
 }
+
+export default Table

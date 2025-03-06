@@ -1,9 +1,11 @@
 import './App.css';
 import './global.css';
-import {PieChartParticipation} from './Info.js'
-import { Table, Input, Button } from './BasicComponents.js';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import Button from './components/Button';
+import Input from './components/Input';
+import Table from './components/Table';
+import PieChartParticipation from './components/PieChart';
 
 function App() {
   const [participations, setParticipations] = useState([]);
@@ -11,34 +13,37 @@ function App() {
   const [lastName, setLastName] = useState('');
   const [participationPct, setParticipationPct] = useState('');
 
+  const fetchParticipations = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/polls/api/participations/');
+      setParticipations(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   useEffect(() => {
-    console.log('Fetching data...');
-    axios.get('http://127.0.0.1:8000/polls/api/participations/')
-      .then(response => {
-        setParticipations(response.data);
-      })
-      .catch(error => {
-        console.error('Error fecthing: ', error);
-      });
+    fetchParticipations();
   }, []);
 
-  // TODO fazer GET quando houver um pPOST
   const handleSubmit = async (e) => {
-    e.preventDefault(); // TODO Pesquisar
+    e.preventDefault();
+
     const data = {
       first_name: firstName,
       last_name: lastName,
       participation_pct: parseFloat(participationPct),
-    }
+    };
 
-    try{
-      const response = await axios.post('http://127.0.0.1:8000/polls/api/participations/', data);
-      setParticipationPct([...participationPct, response.data]); // TODO entender
+    try {
+      await axios.post('http://127.0.0.1:8000/polls/api/participations/', data);
+      await fetchParticipations();
 
+      // Resetar campos
       setFirstName('');
       setLastName('');
       setParticipationPct('');
-    } catch(error) {
+    } catch (error) {
       console.error('Error saving data:', error);
     }
   };
@@ -71,7 +76,7 @@ function App() {
           <h1>
             DATA
           </h1>
-          <p>LUANA TATA LUANA TATA LUANA TATA LUANA TATA LUANA TATA</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
         <div className="info">
           <Table participations={participations} />
