@@ -1,6 +1,6 @@
 # { "developer": "fullstack" }
 
-This project is a application using Django (backend) and React (frontend), containerized using Docker.
+This project is a application using Django (backend) and React (frontend), containerized using Docker. <p>
 ![layout](image.png)
 
 ## Technologies Used
@@ -22,6 +22,7 @@ docker-compose up --build -d
 3. You can also run the application with:
 ```sh 
 cd frontend
+npm install
 npm start
 ```
 ```sh 
@@ -41,7 +42,8 @@ docker-compose down
 You can also run frontend and backend tests.
 ### Frontend
 Go to the **frontend** folder and run:
-```sh 
+```sh
+npm install
 npm test
 ```
 
