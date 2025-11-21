@@ -48,7 +48,11 @@ npm test
 ```
 
 ### Backend
-Go to the **backend** folder and run:
+Go to the **backend** folder:
+```sh 
+cd backend
+```
+Run:
 ```sh 
 python manage.py test
 ```
